@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B&B Monello Beach — Diamante, Calabria</title>
+<meta name="description" content="B&B Monello Beach, Diamante (CS). 4 camere fronte mare, terrazza panoramica, colazione inclusa. A 10 metri dal mare nel centro di Diamante, Calabria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BedAndBreakfast",
+  "name": "B&B Monello Beach",
+  "image": "assets/ig_02_logo.jpg",
+  "telephone": "+393487661538",
+  "email": "info@bb-monellobeach.it",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Discesa Corvino, 2",
+    "addressLocality": "Diamante",
+    "postalCode": "87023",
+    "addressRegion": "CS",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "39.679668",
+    "longitude": "15.817071"
+  },
+  "priceRange": "€€",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "41",
+    "bestRating": "5"
+  },
+  "amenityFeature": [
+    {"@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Aria condizionata", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Parcheggio gratuito", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Colazione inclusa", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Accesso diretto alla spiaggia", "value": true}
+  ]
+}
+</script>
+
+<style>
+/* ── TOKENS ─────────────────────────────────────────────────── */
+:root {
+  --blue:       #2B72B5;
+  --blue-deep:  #1A4A7A;
+  --blue-dark:  #0F2E52;
+  --gold:       #E8A236;
+  --gold-light: #F2C16E;
+  --sand:       #E8C99E;
+  --cream:      #F5EDD9;
+  --cream-soft: #FAF6EE;
+  --teal:       #4AABB5;
+  --dark:       #1F3344;
+  --dark-80:    rgba(31,51,68,.8);
+  --white:      #FAFAF8;
+  --sunset:     #E07832;
+
+  --font-serif:  'Cormorant Garamond', Georgia, serif;
+  --font-display:'Cinzel', serif;
+  --font-body:   'Karla', system-ui, sans-serif;
+
+  --r-sm:  6px;
+  --r-md:  12px;
+  --r-lg:  20px;
+  --r-xl:  32px;
+
+  --sh-card: 0 4px 24px rgba(27,74,122,.12);
+  --sh-hover: 0 8px 40px rgba(27,74,122,.22);
+
+  --ease: cubic-bezier(.4,0,.2,1);
+  --dur: 280ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--dark);
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+.t-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.t-serif { font-family: var(--font-serif); }
+.t-body  { font-family: var(--font-body); }
+
+h1,h2,h3 { font-family: var(--font-serif); font-weight: 400; line-height: 1.2; }
+
+/* ── NAVBAR ─────────────────────────────────────────────────── */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--dur) var(--ease), padding var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+#navbar.scrolled {
+  background: rgba(15,46,82,.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 5vw;
+  box-shadow: 0 2px 20px rgba(0,0,0,.25);
+}
+.nav-logo img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: height var(--dur) var(--ease);
+}
+#navbar.scrolled .nav-logo img { height: 38px; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+  transition: color var(--dur) var(--ease);
+}
+.nav-links a:hover { color: var(--gold-light); }
+
+.nav-lang {
+  display: flex;
+  gap: 4px;
+}
+.nav-lang button {
+  background: none;
+  border: 1px solid rgba(255,255,255,.35);
+  color: rgba(255,255,255,.7);
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all var(--dur) var(--ease);
+}
+.nav-lang button.active,
+.nav-lang button:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--dark);
+}
+
+.nav-cta {
+  background: var(--gold);
+  color: var(--dark) !important;
+  padding: 10px 22px !important;
+  border-radius: var(--r-sm);
+  font-weight: 500 !important;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease) !important;
+}
+.nav-cta:hover {
+  background: var(--gold-light) !important;
+  transform: translateY(-1px);
+}
+
+/* hamburger (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all var(--dur) var(--ease);
+}
+
+/* ── HERO ───────────────────────────────────────────────────── */
+#hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+}
+.hero-video-wrap video {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto;
+  object-fit: cover;
+}
+.hero-video-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15,46,82,.18) 0%,
+    rgba(15,46,82,.42) 50%,
+    rgba(15,46,82,.72) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  padding: 0 5vw;
+  max-width: 760px;
+}
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: .72rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 300;
+  line-height: 1.08;
+  margin-bottom: 20px;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--sand);
+}
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: .88;
+  margin-bottom: 36px;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--dark);
+  font-family: var(--font-body);
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border-radius: var(--r-sm);
+  border: none;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232,162,54,.4);
+}
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: .82rem;
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border-radius: var(--r-sm);
+  border: 1.5px solid rgba(255,255,255,.55);
+  cursor: pointer;
+  transition: all var(--dur) var(--ease);
+}
+.btn-outline:hover {
+  border-color: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.08);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,.6);
+  font-family: var(--font-display);
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  animation: bounce 2s ease-in-out infinite;
+}
+.hero-scroll svg { opacity: .6; }
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ── RATING BAR ─────────────────────────────────────────────── */
+.rating-bar {
+  background: var(--dark);
+  padding: 18px 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.rating-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+}
+.rating-stars {
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+.rating-text {
+  font-family: var(--font-body);
+  font-size: .8rem;
+  letter-spacing: .05em;
+  color: rgba(255,255,255,.7);
+}
+.rating-score {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  margin-right: 4px;
+}
+.rating-sep {
+  width: 1px; height: 28px;
+  background: rgba(255,255,255,.18);
+}
+
+/* ── SECTION COMMON ─────────────────────────────────────────── */
+section { padding: 96px 5vw; }
+
+.section-eyebrow {
+  font-family: var(--font-display);
+  font-size: .68rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.section-lead {
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(31,51,68,.72);
+  max-width: 56ch;
+}
+
+/* reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── CHI SIAMO ──────────────────────────────────────────────── */
+#chi-siamo {
+  background: var(--cream-soft);
+}
+.chi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.chi-text {}
+.chi-text .section-lead { margin-bottom: 28px; }
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+.pill {
+  background: var(--cream);
+  border: 1px solid var(--sand);
+  color: var(--blue-deep);
+  font-family: var(--font-body);
+  font-size: .76rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+.chi-mascotte {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.mascotte-frame {
+  width: min(280px, 70vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--sand);
+  box-shadow: var(--sh-card);
+}
+.mascotte-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.mascotte-caption {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--blue-deep);
+}
+
+/* ── CAMERE ─────────────────────────────────────────────────── */
+#camere {
+  background: var(--white);
+}
+.camere-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.camere-header {
+  margin-bottom: 52px;
+}
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-bottom: 52px;
+}
+.room-card {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--cream-soft);
+  border: 1px solid rgba(232,201,158,.4);
+  box-shadow: var(--sh-card);
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.room-card:hover {
+  box-shadow: var(--sh-hover);
+  transform: translateY(-4px);
+}
+.room-img-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.room-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  transition: transform .5s var(--ease);
+  filter: brightness(0.97) saturate(0.72) contrast(1.06);
+}
+.room-card:hover .room-img-wrap img {
+  transform: scale(1.04);
+}
+.room-badge {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: rgba(15,46,82,.82);
+  backdrop-filter: blur(8px);
+  color: var(--gold-light);
+  font-family: var(--font-display);
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+.room-body {
+  padding: 24px 24px 28px;
+}
+.room-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.room-desc {
+  font-size: .88rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(31,51,68,.68);
+  margin-bottom: 16px;
+}
+.room-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.room-amenity {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .73rem;
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.amenities-strip {
+  background: var(--cream);
+  border-radius: var(--r-lg);
+  padding: 32px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .84rem;
+  font-weight: 400;
+  color: var(--dark);
+}
+.amenity-icon {
+  width: 36px; height: 36px;
+  background: var(--blue);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--white);
+}
+
+/* ── DIAMANTE ───────────────────────────────────────────────── */
+#diamante {
+  background: var(--blue-dark);
+  color: var(--white);
+}
+.diamante-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#diamante .section-eyebrow { color: var(--gold-light); }
+#diamante .section-title   { color: var(--white); }
+#diamante .section-lead    { color: rgba(255,255,255,.7); }
+
+.location-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 52px;
+}
+.loc-tile {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r-lg);
+  padding: 28px 24px;
+  transition: background var(--dur) var(--ease);
+}
+.loc-tile:hover { background: rgba(255,255,255,.1); }
+.loc-num {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  color: var(--gold-light);
+  letter-spacing: .02em;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+.loc-label {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.loc-desc {
+  font-size: .82rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.55);
+  line-height: 1.6;
+}
+
+/* ── POSIZIONE ──────────────────────────────────────────────── */
+#posizione {
+  background: var(--cream-soft);
+  padding-bottom: 0;
+}
+.posizione-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.map-wrap {
+  margin-top: 40px;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  overflow: hidden;
+  height: 400px;
+  box-shadow: var(--sh-card);
+}
+.map-wrap iframe {
+  width: 100%; height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ── RECENSIONI ─────────────────────────────────────────────── */
+#recensioni {
+  background: var(--white);
+}
+.recensioni-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.review-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--cream-soft);
+  border: 1px solid var(--sand);
+  border-radius: var(--r-xl);
+  padding: 40px 56px;
+  margin: 40px 0;
+}
+.review-score-big {
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  color: var(--blue);
+  line-height: 1;
+  font-weight: 300;
+}
+.review-stars-big {
+  color: var(--gold);
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+}
+.review-count {
+  font-family: var(--font-body);
+  font-size: .82rem;
+  color: rgba(31,51,68,.55);
+  letter-spacing: .06em;
+}
+.review-platform {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: .76rem;
+  font-weight: 500;
+  color: var(--blue);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.review-cta-note {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: rgba(31,51,68,.6);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-google {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  border: 1.5px solid rgba(43,114,181,.3);
+  color: var(--blue-deep);
+  font-family: var(--font-body);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: all var(--dur) var(--ease);
+}
+.btn-google:hover {
+  border-color: var(--blue);
+  background: var(--cream-soft);
+  transform: translateY(-1px);
+}
+
+/* ── BOOKING / CONTATTI ─────────────────────────────────────── */
+#contatti {
+  background: var(--cream-soft);
+}
+.contatti-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.contatti-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  margin-top: 52px;
+}
+.contact-info {}
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.contact-icon {
+  width: 42px; height: 42px;
+  background: var(--blue);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--white);
+}
+.contact-label {
+  font-family: var(--font-display);
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 3px;
+}
+.contact-val {
+  font-size: .95rem;
+  font-weight: 400;
+  color: var(--dark);
+}
+.contact-val a:hover { color: var(--blue); }
+
+.booking-form {
+  background: var(--white);
+  border: 1px solid rgba(232,201,158,.5);
+  border-radius: var(--r-lg);
+  padding: 36px 32px;
+  box-shadow: var(--sh-card);
+}
+.form-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+.form-sub {
+  font-size: .83rem;
+  color: rgba(31,51,68,.55);
+  margin-bottom: 28px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+.form-group label {
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: .9rem;
+  font-weight: 300;
+  color: var(--dark);
+  background: var(--cream-soft);
+  border: 1.5px solid rgba(232,201,158,.6);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  transition: border-color var(--dur) var(--ease);
+  outline: none;
+  -webkit-appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--blue);
+  background: var(--white);
+}
+.form-group textarea { resize: vertical; min-height: 90px; }
+
+.demo-disclaimer {
+  background: rgba(232,162,54,.1);
+  border: 1px solid rgba(232,162,54,.4);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  font-size: .76rem;
+  color: rgba(31,51,68,.65);
+  line-height: 1.5;
+  margin-bottom: 18px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.demo-disclaimer svg { flex-shrink: 0; margin-top: 1px; color: var(--gold); }
+
+#form-status {
+  display: none;
+  padding: 12px 14px;
+  border-radius: var(--r-sm);
+  font-size: .84rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+#form-status.success {
+  background: rgba(74,171,181,.15);
+  color: var(--teal);
+  display: block;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+footer {
+  background: var(--blue-dark);
+  color: var(--white);
+  padding: 56px 5vw 32px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  margin-bottom: 28px;
+}
+.footer-brand {}
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.footer-logo-wrap img {
+  height: 44px;
+  filter: brightness(0) invert(1);
+}
+.footer-brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--white);
+}
+.footer-tagline {
+  font-size: .83rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.55);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+.social-btn {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,.08);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.65);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.social-btn:hover {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-links a {
+  font-size: .83rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.55);
+  transition: color var(--dur) var(--ease);
+}
+.footer-links a:hover { color: var(--gold-light); }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-copy {
+  font-size: .73rem;
+  color: rgba(255,255,255,.3);
+}
+.footer-demo-note {
+  font-size: .7rem;
+  color: rgba(232,162,54,.6);
+  font-style: italic;
+}
+
+/* ── MOBILE NAV PANEL ───────────────────────────────────────── */
+#mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15,46,82,.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  transform: translateX(100%);
+  transition: transform .35s var(--ease);
+}
+#mobile-nav.open { transform: none; }
+#mobile-nav a {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: .05em;
+}
+#mobile-nav a:hover { color: var(--gold-light); }
+.mobile-close {
+  position: absolute;
+  top: 24px; right: 5vw;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .chi-grid         { grid-template-columns: 1fr; gap: 40px; }
+  .chi-mascotte     { order: -1; }
+  .contatti-grid    { grid-template-columns: 1fr; gap: 40px; }
+  .footer-top       { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links        { display: none; }
+  .hamburger        { display: flex; }
+  .rating-bar       { gap: 20px; }
+  .rating-sep       { display: none; }
+  .form-row         { grid-template-columns: 1fr; }
+  .footer-top       { grid-template-columns: 1fr; }
+  .amenities-strip  { padding: 24px 20px; }
+}
+
+@media (max-width: 480px) {
+  section           { padding: 64px 5vw; }
+  .booking-form     { padding: 24px 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">
+    <img src="assets/ig_02_logo.jpg" alt="B&B Monello Beach logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#chi-siamo"  data-it="Chi Siamo"  data-en="About">Chi Siamo</a></li>
+    <li><a href="#camere"     data-it="Camere"     data-en="Rooms">Camere</a></li>
+    <li><a href="#diamante"   data-it="Diamante"   data-en="Location">Diamante</a></li>
+    <li><a href="#recensioni" data-it="Recensioni" data-en="Reviews">Recensioni</a></li>
+    <li><a href="#contatti" class="nav-cta" data-it="Prenota" data-en="Book Now">Prenota</a></li>
+  </ul>
+  <div class="nav-lang">
+    <button id="btnIT" onclick="setLang('it')" class="active">IT</button>
+    <button id="btnEN" onclick="setLang('en')">EN</button>
+  </div>
+  <div class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <button class="mobile-close" onclick="toggleMobileNav()">✕</button>
+  <a href="#chi-siamo"  onclick="toggleMobileNav()" data-it="Chi Siamo"  data-en="About">Chi Siamo</a>
+  <a href="#camere"     onclick="toggleMobileNav()" data-it="Camere"     data-en="Rooms">Camere</a>
+  <a href="#diamante"   onclick="toggleMobileNav()" data-it="Diamante"   data-en="Location">Diamante</a>
+  <a href="#recensioni" onclick="toggleMobileNav()" data-it="Recensioni" data-en="Reviews">Recensioni</a>
+  <a href="#contatti"   onclick="toggleMobileNav()" data-it="Prenota"    data-en="Book Now">Prenota</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/ig_01_tramonto_video_thumb.jpg">
+      <source src="assets/ig_01_tramonto.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow t-display" data-it="Diamante, Calabria" data-en="Diamante, Calabria">Diamante, Calabria</p>
+    <h1 class="hero-title">
+      <span data-it="Svegliarsi con" data-en="Wake up to">Svegliarsi con</span><br>
+      <em data-it="il mare davanti" data-en="the sea before you">il mare davanti</em>
+    </h1>
+    <p class="hero-sub" data-it="B&amp;B a 10 metri dall'acqua, nel cuore di Diamante. Terrazza panoramica, accesso diretto alla spiaggia, colazione fatta in casa." data-en="Beachfront B&amp;B 10 metres from the water, in the heart of Diamante. Panoramic terrace, direct beach access, homemade breakfast.">B&amp;B a 10 metri dall'acqua, nel cuore di Diamante. Terrazza panoramica, accesso diretto alla spiaggia, colazione fatta in casa.</p>
+    <div class="hero-actions">
+      <a href="#contatti" class="btn-primary" data-it="Verifica disponibilità" data-en="Check Availability">Verifica disponibilità</a>
+      <a href="#camere"   class="btn-outline"  data-it="Scopri le camere"      data-en="Explore Rooms">Scopri le camere</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>
+    <span data-it="Scorri" data-en="Scroll">Scorri</span>
+  </div>
+</section>
+
+<!-- RATING BAR -->
+<div class="rating-bar">
+  <div class="rating-item">
+    <span class="rating-score">4.9</span>
+    <div>
+      <div class="rating-stars">★★★★★</div>
+      <div class="rating-text" data-it="su Google (41 recensioni)" data-en="on Google (41 reviews)">su Google (41 recensioni)</div>
+    </div>
+  </div>
+  <div class="rating-sep"></div>
+  <div class="rating-item">
+    <span class="rating-score">4.8</span>
+    <div>
+      <div class="rating-stars">★★★★★</div>
+      <div class="rating-text" data-it="su TripAdvisor" data-en="on TripAdvisor">su TripAdvisor</div>
+    </div>
+  </div>
+  <div class="rating-sep"></div>
+  <div class="rating-item">
+    <div>
+      <div class="rating-stars">⛱</div>
+      <div class="rating-text" data-it="10 m dal mare" data-en="10 m from the sea">10 m dal mare</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHI SIAMO -->
+<section id="chi-siamo">
+  <div class="chi-grid">
+    <div class="chi-text reveal">
+      <p class="section-eyebrow t-display" data-it="Chi Siamo" data-en="About Us">Chi Siamo</p>
+      <h2 class="section-title">
+        <span data-it="Una famiglia,<br>una storia,<br>un mare" data-en="A family,<br>a story,<br>a sea">Una famiglia,<br>una storia,<br>un mare</span>
+      </h2>
+      <p class="section-lead" data-it="Nikolas e il suo team ti accolgono in un angolo di Calabria dove il tempo rallenta. Quattro camere curate nei dettagli, terrazza affacciata sul Tirreno, colazione preparata ogni mattina con prodotti locali." data-en="Nikolas and his team welcome you to a corner of Calabria where time slows down. Four rooms curated down to every detail, a terrace overlooking the Tyrrhenian Sea, breakfast prepared each morning with local produce.">Nikolas e il suo team ti accolgono in un angolo di Calabria dove il tempo rallenta. Quattro camere curate nei dettagli, terrazza affacciata sul Tirreno, colazione preparata ogni mattina con prodotti locali.</p>
+      <div class="pill-list">
+        <span class="pill" data-it="Famiglia italiana" data-en="Italian family">Famiglia italiana</span>
+        <span class="pill" data-it="Fronte mare" data-en="Beachfront">Fronte mare</span>
+        <span class="pill" data-it="Colazione inclusa" data-en="Breakfast included">Colazione inclusa</span>
+        <span class="pill" data-it="Check-in 14:00" data-en="Check-in 14:00">Check-in 14:00</span>
+        <span class="pill" data-it="Parcheggio gratuito" data-en="Free parking">Parcheggio gratuito</span>
+        <span class="pill" data-it="400m dal centro" data-en="400m from centre">400m dal centro</span>
+      </div>
+    </div>
+    <div class="chi-mascotte reveal">
+      <div class="mascotte-frame">
+        <img src="assets/ig_03_mascotte.jpg" alt="Monello — mascotte del B&B">
+      </div>
+      <p class="mascotte-caption" data-it="&ldquo;Monello&rdquo; — il nostro spirito guida" data-en="&ldquo;Monello&rdquo; — our guiding spirit">&ldquo;Monello&rdquo; — il nostro spirito guida</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAMERE -->
+<section id="camere">
+  <div class="camere-inner">
+    <div class="camere-header reveal">
+      <p class="section-eyebrow t-display" data-it="Le Camere" data-en="Our Rooms">Le Camere</p>
+      <h2 class="section-title" data-it="Quattro camere,<br>vista mare garantita" data-en="Four rooms,<br>sea view guaranteed">Quattro camere,<br>vista mare garantita</h2>
+    </div>
+    <div class="rooms-grid">
+
+      <!-- Camera 1 -->
+      <div class="room-card reveal">
+        <div class="room-img-wrap">
+          <img src="assets/ig_05_matrimoniale_1.jpg"
+               srcset="assets/ig_05_matrimoniale_1.jpg 1x"
+               alt="Camera Matrimoniale Deluxe"
+               loading="lazy">
+          <span class="room-badge t-display" data-it="Matrimoniale" data-en="Double">Matrimoniale</span>
+        </div>
+        <div class="room-body">
+          <h3 class="room-name" data-it="Camera Matrimoniale Deluxe" data-en="Deluxe Double Room">Camera Matrimoniale Deluxe</h3>
+          <p class="room-desc" data-it="Spaziosa camera matrimoniale (uso singolo disponibile) con aria condizionata, TV satellitare e mini-frigo. Luce naturale e atmosfera rilassante a due passi dal mare." data-en="Spacious double room (single use available) with air conditioning, satellite TV and mini-fridge. Natural light and a relaxing atmosphere steps from the sea.">Spaziosa camera matrimoniale (uso singolo disponibile) con aria condizionata, TV satellitare e mini-frigo. Luce naturale e atmosfera rilassante a due passi dal mare.</p>
+          <div class="room-amenities">
+            <span class="room-amenity">✦ <span data-it="2 persone" data-en="2 guests">2 persone</span></span>
+            <span class="room-amenity">✦ Wi-Fi</span>
+            <span class="room-amenity">✦ A/C</span>
+            <span class="room-amenity">✦ TV Sat</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Camera 2 -->
+      <div class="room-card reveal">
+        <div class="room-img-wrap">
+          <img src="assets/ig_04_quadrupla.jpg"
+               srcset="assets/ig_04_quadrupla.jpg 1x"
+               alt="Camera Quadrupla Deluxe"
+               loading="lazy">
+          <span class="room-badge t-display" data-it="Quadrupla" data-en="Quadruple">Quadrupla</span>
+        </div>
+        <div class="room-body">
+          <h3 class="room-name" data-it="Camera Quadrupla Deluxe" data-en="Deluxe Quadruple Room">Camera Quadrupla Deluxe</h3>
+          <p class="room-desc" data-it="La scelta ideale per famiglie e gruppi. Quattro posti letto, ampia metratura, perfetta per chi vuole vivere Diamante in compagnia senza rinunciare al comfort." data-en="The ideal choice for families and groups. Four beds, generous floor space, perfect for experiencing Diamante together without compromising on comfort.">La scelta ideale per famiglie e gruppi. Quattro posti letto, ampia metratura, perfetta per chi vuole vivere Diamante in compagnia senza rinunciare al comfort.</p>
+          <div class="room-amenities">
+            <span class="room-amenity">✦ <span data-it="4 persone" data-en="4 guests">4 persone</span></span>
+            <span class="room-amenity">✦ Wi-Fi</span>
+            <span class="room-amenity">✦ A/C</span>
+            <span class="room-amenity">✦ <span data-it="Frigo" data-en="Fridge">Frigo</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Amenities strip -->
+    <div class="amenities-strip reveal">
+      <div class="amenity-item">
+        <div class="amenity-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
+        </div>
+        <span data-it="Wi-Fi gratuito" data-en="Free Wi-Fi">Wi-Fi gratuito</span>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span data-it="Colazione inclusa" data-en="Breakfast included">Colazione inclusa</span>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <span data-it="Parcheggio gratuito" data-en="Free parking">Parcheggio gratuito</span>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17h18M5 17V7a1 1 0 011-1h12a1 1 0 011 1v10"/><path d="M8 17V9h8v8"/></svg>
+        </div>
+        <span data-it="Aria condizionata" data-en="Air conditioning">Aria condizionata</span>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <span data-it="Check-in flessibile" data-en="Flexible check-in">Check-in flessibile</span>
+      </div>
+      <div class="amenity-item">
+        <div class="amenity-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 110-14h8.5a4.5 4.5 0 010 9H9a1.5 1.5 0 010-3h8.5"/></svg>
+        </div>
+        <span data-it="Accesso spiaggia" data-en="Beach access">Accesso spiaggia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAMANTE -->
+<section id="diamante">
+  <div class="diamante-inner">
+    <div class="reveal">
+      <p class="section-eyebrow t-display" data-it="La Posizione" data-en="The Location">La Posizione</p>
+      <h2 class="section-title" data-it="Diamante:<br>il paese dei murales" data-en="Diamante:<br>the village of murals">Diamante:<br>il paese dei murales</h2>
+      <p class="section-lead" data-it="Una delle perle della Riviera dei Cedri — città d'arte, mare cristallino, cucina autentica calabrese. Il Monello Beach si trova a 10 metri dall'acqua e a 400 metri dal cuore storico del paese." data-en="One of the jewels of the Riviera dei Cedri — an art town, crystal-clear sea, authentic Calabrian cuisine. Monello Beach sits 10 metres from the water and 400 metres from the historic heart of the village.">Una delle perle della Riviera dei Cedri — città d'arte, mare cristallino, cucina autentica calabrese. Il Monello Beach si trova a 10 metri dall'acqua e a 400 metri dal cuore storico del paese.</p>
+    </div>
+    <div class="location-tiles">
+      <div class="loc-tile reveal">
+        <div class="loc-num">10m</div>
+        <div class="loc-label" data-it="Dal mare" data-en="From the sea">Dal mare</div>
+        <div class="loc-desc" data-it="Accesso diretto alla spiaggia dalla struttura." data-en="Direct beach access from the property.">Accesso diretto alla spiaggia dalla struttura.</div>
+      </div>
+      <div class="loc-tile reveal">
+        <div class="loc-num">400m</div>
+        <div class="loc-label" data-it="Dal centro storico" data-en="From the old town">Dal centro storico</div>
+        <div class="loc-desc" data-it="Murales, ristoranti, boutique — tutto a piedi." data-en="Murals, restaurants, boutiques — all walkable.">Murales, ristoranti, boutique — tutto a piedi.</div>
+      </div>
+      <div class="loc-tile reveal">
+        <div class="loc-num">4</div>
+        <div class="loc-label" data-it="Camere disponibili" data-en="Rooms available">Camere disponibili</div>
+        <div class="loc-desc" data-it="Doppia, matrimoniale, tripla, quadrupla." data-en="Twin, double, triple, quadruple.">Doppia, matrimoniale, tripla, quadrupla.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSIZIONE / MAPPA -->
+<section id="posizione">
+  <div class="posizione-inner">
+    <div class="reveal">
+      <p class="section-eyebrow t-display" data-it="Come Trovarci" data-en="Find Us">Come Trovarci</p>
+      <h2 class="section-title" data-it="Discesa Corvino, 2<br>Diamante (CS)" data-en="Discesa Corvino, 2<br>Diamante (CS)">Discesa Corvino, 2<br>Diamante (CS)</h2>
+    </div>
+    <div class="map-wrap">
+      <iframe
+        title="Mappa B&B Monello Beach"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&q=place_id:ChIJY7IRGDADPxMRidOuCsJamp8&zoom=16">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section id="recensioni">
+  <div class="recensioni-inner">
+    <div class="reveal">
+      <p class="section-eyebrow t-display" data-it="Recensioni" data-en="Reviews">Recensioni</p>
+      <h2 class="section-title" data-it="Cosa dicono i nostri ospiti" data-en="What our guests say">Cosa dicono i nostri ospiti</h2>
+    </div>
+    <div class="review-badge reveal">
+      <div class="review-score-big">4.9</div>
+      <div class="review-stars-big">★★★★★</div>
+      <div class="review-count" data-it="su 41 recensioni verificate" data-en="from 41 verified reviews">su 41 recensioni verificate</div>
+      <div class="review-platform">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 12.24c0-.79-.07-1.54-.2-2.27H12v4.29h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Reviews
+      </div>
+    </div>
+    <p class="review-cta-note" data-it="Leggi le opinioni autentiche dei nostri ospiti direttamente su Google Maps." data-en="Read authentic opinions from our guests directly on Google Maps.">Leggi le opinioni autentiche dei nostri ospiti direttamente su Google Maps.</p>
+    <a class="btn-google" href="https://maps.google.com/?cid=11500604387893367689" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 12.24c0-.79-.07-1.54-.2-2.27H12v4.29h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      <span data-it="Vedi tutte le recensioni su Google" data-en="See all reviews on Google">Vedi tutte le recensioni su Google</span>
+    </a>
+  </div>
+</section>
+
+<!-- CONTATTI / BOOKING -->
+<section id="contatti">
+  <div class="contatti-inner">
+    <div class="reveal">
+      <p class="section-eyebrow t-display" data-it="Prenota" data-en="Book Now">Prenota</p>
+      <h2 class="section-title" data-it="Contattaci direttamente" data-en="Contact us directly">Contattaci direttamente</h2>
+      <p class="section-lead" data-it="Prenota senza commissioni — un messaggio WhatsApp o una email sono tutto quello che serve." data-en="Book commission-free — a WhatsApp message or email is all it takes.">Prenota senza commissioni — un messaggio WhatsApp o una email sono tutto quello che serve.</p>
+    </div>
+    <div class="contatti-grid">
+      <div class="contact-info reveal">
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label t-display" data-it="Telefono / WhatsApp" data-en="Phone / WhatsApp">Telefono / WhatsApp</div>
+            <div class="contact-val"><a href="tel:+393487661538">+39 348 766 1538</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label t-display">Email</div>
+            <div class="contact-val"><a href="mailto:info@bb-monellobeach.it">info@bb-monellobeach.it</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label t-display" data-it="Indirizzo" data-en="Address">Indirizzo</div>
+            <div class="contact-val">Discesa Corvino, 2<br>87023 Diamante (CS), Italia</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label t-display">Instagram</div>
+            <div class="contact-val"><a href="https://www.instagram.com/bb_monellobeach/" target="_blank" rel="noopener">@bb_monellobeach</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-form reveal">
+        <h3 class="form-title" data-it="Richiesta di prenotazione" data-en="Booking request">Richiesta di prenotazione</h3>
+        <p class="form-sub" data-it="Ti risponderemo entro 24 ore." data-en="We'll reply within 24 hours.">Ti risponderemo entro 24 ore.</p>
+
+        <div class="demo-disclaimer">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span data-it="Sito demo — nessuna prenotazione reale verrà processata. Per prenotare contatta direttamente il B&B al +39 348 766 1538." data-en="Demo site — no real booking will be processed. To book, contact the B&B directly at +39 348 766 1538.">Sito demo — nessuna prenotazione reale verrà processata. Per prenotare contatta direttamente il B&B al +39 348 766 1538.</span>
+        </div>
+
+        <form id="booking-form" onsubmit="handleSubmit(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="check-in" data-it="Check-in" data-en="Check-in">Check-in</label>
+              <input type="date" id="check-in" name="checkin" required>
+            </div>
+            <div class="form-group">
+              <label for="check-out" data-it="Check-out" data-en="Check-out">Check-out</label>
+              <input type="date" id="check-out" name="checkout" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guests" data-it="Ospiti" data-en="Guests">Ospiti</label>
+              <select id="guests" name="guests">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="room-type" data-it="Tipo camera" data-en="Room type">Tipo camera</label>
+              <select id="room-type" name="room">
+                <option data-it="Matrimoniale Deluxe" data-en="Deluxe Double">Matrimoniale Deluxe</option>
+                <option data-it="Tripla" data-en="Triple">Tripla</option>
+                <option data-it="Quadrupla Deluxe" data-en="Deluxe Quadruple">Quadrupla Deluxe</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nome" data-it="Nome e cognome" data-en="Full name">Nome e cognome</label>
+            <input type="text" id="nome" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email-contact">Email</label>
+            <input type="email" id="email-contact" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="msg" data-it="Messaggio (opzionale)" data-en="Message (optional)">Messaggio (opzionale)</label>
+            <textarea id="msg" name="message"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center" data-it="Invia richiesta" data-en="Send request">Invia richiesta</button>
+        </form>
+        <div id="form-status"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="assets/ig_02_logo.jpg" alt="B&B Monello Beach">
+          <span class="footer-brand-name">B&amp;B Monello Beach</span>
+        </div>
+        <p class="footer-tagline" data-it="Quattro camere, una terrazza, il Tirreno a 10 metri. Diamante, Calabria." data-en="Four rooms, a terrace, the Tyrrhenian Sea 10 metres away. Diamante, Calabria.">Quattro camere, una terrazza, il Tirreno a 10 metri. Diamante, Calabria.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/bb_monellobeach/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/p/BB-monello-beach-100048941205596/" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://maps.google.com/?cid=11500604387893367689" class="social-btn" target="_blank" rel="noopener" aria-label="Google Maps">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title t-display" data-it="Navigazione" data-en="Navigation">Navigazione</p>
+        <ul class="footer-links">
+          <li><a href="#chi-siamo" data-it="Chi Siamo"   data-en="About">Chi Siamo</a></li>
+          <li><a href="#camere"    data-it="Camere"      data-en="Rooms">Camere</a></li>
+          <li><a href="#diamante"  data-it="Posizione"   data-en="Location">Posizione</a></li>
+          <li><a href="#recensioni" data-it="Recensioni" data-en="Reviews">Recensioni</a></li>
+          <li><a href="#contatti"  data-it="Prenota"     data-en="Book">Prenota</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title t-display" data-it="Contatti" data-en="Contact">Contatti</p>
+        <ul class="footer-links">
+          <li><a href="tel:+393487661538">+39 348 766 1538</a></li>
+          <li><a href="mailto:info@bb-monellobeach.it">info@bb-monellobeach.it</a></li>
+          <li><a href="https://maps.google.com/?cid=11500604387893367689" target="_blank" rel="noopener" data-it="Vedi su Maps" data-en="View on Maps">Vedi su Maps</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy" data-it="© 2026 B&amp;B Monello Beach — Diamante (CS)" data-en="© 2026 B&amp;B Monello Beach — Diamante (CS)">© 2026 B&amp;B Monello Beach — Diamante (CS)</p>
+      <p class="footer-demo-note" data-it="Sito demo — non rappresenta un impegno commerciale" data-en="Demo site — not a commercial commitment">Sito demo — non rappresenta un impegno commerciale</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── I18N (safe innerHTML) ──────────────────────────────── */
+const ALLOWED_TAGS = /^(em|strong|br|span|a)$/i;
+
+function safeSetContent(el, val) {
+  if (!val) return;
+  if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+    el.placeholder = val;
+    return;
+  }
+  // Only use innerHTML when value contains known-safe HTML (developer-authored attributes)
+  if (/<[^>]+>/.test(val)) {
+    el.innerHTML = val;
+  } else {
+    el.textContent = val;
+  }
+}
+
+let currentLang = localStorage.getItem('mbLang') || 'it';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('mbLang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-it],[data-en]').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (val !== null) safeSetContent(el, val);
+  });
+  document.getElementById('btnIT').classList.toggle('active', lang === 'it');
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+}
+
+/* init */
+setLang(currentLang);
+
+/* ── NAVBAR SCROLL ───────────────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── MOBILE NAV ──────────────────────────────────────── */
+function toggleMobileNav() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+  document.body.style.overflow =
+    document.getElementById('mobile-nav').classList.contains('open') ? 'hidden' : '';
+}
+
+/* ── REVEAL ON SCROLL ────────────────────────────────── */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ── FORM (demo) ─────────────────────────────────────── */
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn  = e.target.querySelector('[type=submit]');
+  const stat = document.getElementById('form-status');
+  btn.disabled = true;
+  btn.textContent = currentLang === 'it' ? 'Invio...' : 'Sending...';
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.textContent = currentLang === 'it' ? 'Invia richiesta' : 'Send request';
+    stat.className = 'success';
+    stat.textContent = currentLang === 'it'
+      ? 'Richiesta inviata! Ti contatteremo entro 24 ore. (Demo — nessun dato reale trasmesso)'
+      : 'Request sent! We\'ll contact you within 24 hours. (Demo — no real data transmitted)';
+    e.target.reset();
+  }, 900);
+}
+
+/* ── VIDEO AUTOPLAY (iOS fallback) ──────────────────── */
+const vid = document.querySelector('#hero video');
+if (vid) {
+  vid.play().catch(() => {
+    vid.closest('.hero-video-wrap').style.background =
+      'linear-gradient(135deg, #0F2E52 0%, #2B72B5 50%, #1A4A7A 100%)';
+  });
+}
+</script>
+</body>
+</html>
