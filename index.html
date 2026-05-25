@@ -36,10 +36,9 @@ h1,h2,h3{font-family:var(--f-serif);font-weight:400;line-height:1.15}
 /* NAVBAR */
 #navbar{position:fixed;top:3px;left:0;right:0;z-index:100;padding:18px 5vw;display:flex;align-items:center;justify-content:space-between;transition:background var(--dur) var(--ease),padding var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
 #navbar.scrolled{background:rgba(250,246,238,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 5vw;box-shadow:0 2px 20px rgba(31,51,68,.08)}
-#navbar.scrolled .nav-logo img{filter:none}
 #navbar.scrolled .nav-link{color:rgba(31,51,68,.75)!important;text-shadow:none!important}
 #navbar.scrolled .nav-wa svg{color:var(--blue)!important;filter:none!important}
-.nav-logo-pill{background:rgba(245,237,217,.92);padding:6px 14px;border-radius:999px;backdrop-filter:blur(8px)}
+.nav-logo-pill{background:rgba(255,255,255,.95);padding:6px 14px;border-radius:999px;backdrop-filter:blur(8px)}
 #navbar.scrolled .nav-logo-pill{background:transparent;padding:0}
 .nav-logo img{height:40px;width:auto;object-fit:contain;transition:height var(--dur) var(--ease)}
 #navbar.scrolled .nav-logo img{height:34px}
@@ -251,7 +250,7 @@ footer{background:var(--blue-dark);color:#fff;padding:52px 5vw 28px}
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:24px}
 .f-logo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.f-logo-wrap img{height:40px;filter:brightness(0) invert(1)}
+.f-logo-wrap img{height:40px;background:rgba(255,255,255,.9);padding:4px 6px;border-radius:8px}
 .f-brand-name{font-family:var(--f-serif);font-size:1.1rem}
 .f-tagline{font-size:.8rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:18px}
 .f-socials{display:flex;gap:10px}
